@@ -40,14 +40,14 @@ export function AiLab() {
     <section className="ai-page">
       <div className="hero-card">
         <div>
-          <span className="phase-badge">Study generator</span>
-          <h1>Turn saved notes into practice prompts instantly.</h1>
+          <span className="phase-badge">Practice mode</span>
+          <h1>Turn saved notes into quick self-test prompts.</h1>
           <p>
-            This local-first lab creates AI-style study prompts from your own
-            vocabulary entries, without needing sign-in or API keys.
+            This local-first tool creates reusable practice prompts from your
+            own vocabulary entries, without sign-in or outside services.
           </p>
         </div>
-        <div className="stats-grid" aria-label="AI lab statistics">
+        <div className="stats-grid" aria-label="Practice mode statistics">
           <article className="stat-card">
             <strong>{entries.length}</strong>
             <span>Terms available</span>
@@ -65,7 +65,7 @@ export function AiLab() {
 
       {!isLoaded ? (
         <article className="empty-card">
-          <h3>Loading study lab</h3>
+          <h3>Loading practice mode</h3>
           <p>Your terms and saved prompts will appear here shortly.</p>
         </article>
       ) : !sortedEntries.length ? (
@@ -81,7 +81,7 @@ export function AiLab() {
           <section className="ai-panel">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Lab controls</p>
+                <p className="eyebrow">Test controls</p>
                 <h2>Prompt generator</h2>
               </div>
               <span className="muted-label">Built from your own notes</span>
@@ -132,9 +132,9 @@ export function AiLab() {
             <div className="ai-note">
               <strong>How this works</strong>
               <p>
-                This version creates local AI-style prompts from your saved
-                definitions and examples so the feature works immediately for
-                demos and practice sessions.
+                This version builds local study prompts from your saved
+                definitions and examples so the feature stays simple,
+                transparent, and ready for practice sessions.
               </p>
             </div>
           </section>
