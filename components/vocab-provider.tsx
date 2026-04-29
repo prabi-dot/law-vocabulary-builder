@@ -125,6 +125,66 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     }));
   }
 
+  function updateReviewState(
+    id: string,
+    reviewStatus: "new" | "known" | "review",
+    reviewDueAt: string | null,
+  ) {
+    let updatedEntry: VocabEntry | null = null;
+
+    commit((current) => {
+      const entries = current.entries.map((entry) => {
+        if (entry.id !== id) {
+          return entry;
+        }
+
+        updatedEntry = {
+          ...entry,
+          reviewStatus,
+          reviewDueAt,
+          lastReviewedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+
+        return updatedEntry;
+      });
+
+      return {
+        ...current,
+        entries,
+      };
+    });
+
+    return updatedEntry;
+  }
+
+  function saveAiSuggestions(id: string, aiSuggestions: string[]) {
+    let updatedEntry: VocabEntry | null = null;
+
+    commit((current) => {
+      const entries = current.entries.map((entry) => {
+        if (entry.id !== id) {
+          return entry;
+        }
+
+        updatedEntry = {
+          ...entry,
+          aiSuggestions,
+          updatedAt: new Date().toISOString(),
+        };
+
+        return updatedEntry;
+      });
+
+      return {
+        ...current,
+        entries,
+      };
+    });
+
+    return updatedEntry;
+  }
+
   function saveDoodle(id: string, doodleData: string | null) {
     let updatedEntry: VocabEntry | null = null;
 
@@ -160,6 +220,8 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       addClass,
       addEntry,
       updateEntry,
+      updateReviewState,
+      saveAiSuggestions,
       saveDoodle,
       deleteEntry,
     }),

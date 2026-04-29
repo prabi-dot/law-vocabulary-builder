@@ -38,6 +38,12 @@ export interface AppStateContextValue {
   addClass: (name: string) => ClassFolder;
   addEntry: (input: EntryInput) => VocabEntry;
   updateEntry: (id: string, updates: EntryInput) => VocabEntry | null;
+  updateReviewState: (
+    id: string,
+    reviewStatus: ReviewStatus,
+    reviewDueAt: string | null,
+  ) => VocabEntry | null;
+  saveAiSuggestions: (id: string, aiSuggestions: string[]) => VocabEntry | null;
   saveDoodle: (id: string, doodleData: string | null) => VocabEntry | null;
   deleteEntry: (id: string) => void;
 }

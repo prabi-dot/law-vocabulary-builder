@@ -164,6 +164,15 @@ export function Dashboard() {
         </div>
       </div>
 
+      <article className="storage-note" aria-label="Storage note">
+        <strong>Storage note</strong>
+        <p>
+          Entries and doodles are currently saved locally in this browser on
+          this device. They persist when you return here, but they do not sync
+          across users or devices yet.
+        </p>
+      </article>
+
       <div className="dashboard-grid">
         <aside className="sidebar-card">
           <div className="section-heading">
